@@ -9,6 +9,14 @@ function App() {
 
   const firebase = useFirebase();
 
+  const putDataNew = () => {
+    firebase.putData("Grandfather/Father/child", {
+      id: 1,
+      Name: "Vijay",
+      Age: 26
+    })
+  };
+
   return (
     <div className="App">
       <h1>Firebase</h1>
@@ -26,6 +34,7 @@ function App() {
         firebase.signupUserWithEmailAndPassword(email, password)
         firebase.putData("users/" + "test", { email, password })
       }}>Signup</button>
+      <button onClick={putDataNew}>Trigger</button>
     </div>
   );
 }
